@@ -74,6 +74,8 @@ import './App.css';
 //
 // }
 import {FullInput} from "./components/FullInput";
+import {Input} from "./components/Input";
+import {Button} from "./components/Button";
 
 function App() {
     const [message, setMessage] = useState([
@@ -85,6 +87,12 @@ function App() {
         ]
     )
 
+
+    let [title, setTitle] = useState(" ")
+
+    console.log(title)
+
+
     const addMessage=(title: string)=> {
        let newMassage = {message: title}
         setMessage([newMassage,...message])
@@ -92,7 +100,9 @@ function App() {
 
     return (
         <div className="App">
-            <FullInput addMessage={addMessage}/>
+            <Input setTitle={setTitle} title={title}/>
+            <Button name={"+"} callBack={()=>{addMessage(title)}}/>
+            {/*<FullInput addMessage={addMessage}/>*/}
             {/*<div>*/}
             {/*    <input />*/}
             {/*    <button>+</button>*/}
