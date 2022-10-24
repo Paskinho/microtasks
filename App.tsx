@@ -93,15 +93,22 @@ function App() {
     console.log(title)
 
 
+
+
     const addMessage=(title: string)=> {
        let newMassage = {message: title}
         setMessage([newMassage,...message])
     }
 
+    const callBackButtonHandler = ()=> {
+        addMessage(title)
+        setTitle('')
+    }
+
     return (
         <div className="App">
             <Input setTitle={setTitle} title={title}/>
-            <Button name={"+"} callBack={()=>{addMessage(title)}}/>
+            <Button name={"+"} callBack={callBackButtonHandler}/>
             {/*<FullInput addMessage={addMessage}/>*/}
             {/*<div>*/}
             {/*    <input />*/}
