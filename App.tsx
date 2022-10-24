@@ -84,9 +84,14 @@ function App() {
             {message: 'message5'}
         ]
     )
+
+    const addMessage=(title: string)=> {
+        console.log(title)
+    }
+
     return (
         <div className="App">
-            <FullInput/>
+            <FullInput addMessage={addMessage}/>
             {/*<div>*/}
             {/*    <input />*/}
             {/*    <button>+</button>*/}
