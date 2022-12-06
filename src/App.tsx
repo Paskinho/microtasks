@@ -10,6 +10,7 @@ export type todolistsType = {
     filter: FilterValuesType
 }
 
+
 export type FilterValuesType = "all" | "active" | "completed";
 
 function App() {
@@ -71,30 +72,33 @@ function App() {
     }
 
 
-    let tasksForTodolist = tasks;
+    // let tasksForTodolist = tasks;
 
-    if (filter === "active") {
-        tasksForTodolist = tasks.filter(t => t.isDone === false);
-    }
-    if (filter === "completed") {
-        tasksForTodolist = tasks.filter(t => t.isDone === true);
-    }
+    // if (filter === "active") {
+    //     tasksForTodolist = tasks.filter(t => t.isDone === false);
+    // }
+    // if (filter === "completed") {
+    //     tasksForTodolist = tasks.filter(t => t.isDone === true);
+    // }
 
     function changeFilter(value: FilterValuesType) {
         setFilter(value);
     }
 
     return (
+
         <div className="App">
             {todolists.map((mapTodolist)=> {
+                let tasksForTodolist = tasks[mapTodolist.id];
              return (
-                 <Todolist title="What to learn"
+                 <Todolist
+                           title={mapTodolist.title}
                            tasks={tasksForTodolist}
                            removeTask={removeTask}
                            changeFilter={changeFilter}
                            addTask={addTask}
                            changeTaskStatus={changeStatus}
-                           filter={filter}
+                           filter={mapTodolist.filter}
                  />
 
              )
