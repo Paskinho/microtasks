@@ -1,2 +1,2 @@
 # microtasks
-This is microtasks of It-Incubator
+This is microtasks of It-Incubator from Igor
